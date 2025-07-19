@@ -1,0 +1,493 @@
+/* Navigation Bar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.nav-logo {
+  height: 50px;
+  width: auto;
+}
+
+.nav-center {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-btn {
+  background: none;
+  border: none;
+  color: var(--black);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+  background: var(--blue);
+  color: white;
+}
+
+.join-btn {
+  background: var(--yellow);
+  color: var(--black);
+  font-weight: 600;
+  padding: 0.75rem 2rem;
+  border-radius: 25px;
+}
+
+.join-btn:hover {
+  background: var(--blue);
+  color: white;
+}
+
+/* Page Layouts */
+.page {
+  padding-top: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.page-1 {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.page-2,
+.page-3,
+.page-4 {
+  background: white;
+}
+
+.page-5,
+.page-6,
+.page-7,
+.page-8 {
+  background: var(--blue);
+  color: white;
+}
+
+/* Content Layouts */
+.content-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 1200px;
+  padding: 2rem;
+}
+
+.content-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  max-width: 1200px;
+  padding: 2rem;
+  align-items: center;
+}
+
+/* Landing Page */
+.main-logo {
+  width: 200px;
+  height: auto;
+  margin-bottom: 2rem;
+}
+
+.page-1 h1 {
+  font-size: 4rem;
+  font-weight: bold;
+  margin: 1rem 0;
+}
+
+.page-1 p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.cta-button {
+  background: var(--red);
+  color: white;
+  border: none;
+  padding: 1rem 3rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background: var(--yellow);
+  color: var(--black);
+  transform: translateY(-2px);
+}
+
+.adac-logo-container {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+}
+
+.adac-logo {
+  height: 60px;
+  width: auto;
+}
+
+/* Text Sections */
+.text-section h2 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+.text-section p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+/* Image Sections */
+.image-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.square-image {
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Brush Animation */
+.brush-animation {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.animated-image {
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+  animation: brushStroke 3s ease-in-out infinite alternate;
+}
+
+@keyframes brushStroke {
+  0% {
+    transform: translateX(-10px) rotate(-1deg);
+  }
+  50% {
+    transform: translateX(0) rotate(0deg);
+  }
+  100% {
+    transform: translateX(10px) rotate(1deg);
+  }
+}
+
+/* Interactive Map */
+.map-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 2rem 0;
+}
+
+.map-placeholder {
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px dashed rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  padding: 4rem;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+/* Registration Form */
+.form-container {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 3rem;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  max-width: 500px;
+  width: 100%;
+}
+
+.form-logo {
+  width: 120px;
+  height: auto;
+  margin-bottom: 2rem;
+}
+
+.registration-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-input,
+.form-textarea {
+  padding: 1rem;
+  border: none;
+  border-radius: 14px;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--black);
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--yellow);
+}
+
+.submit-btn {
+  background: var(--yellow);
+  color: var(--black);
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+  background: var(--red);
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Sponsors Page */
+.filter-container {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.filter-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  padding: 0.75rem 1.5rem;
+  border-radius: 14px;
+  cursor: pointer;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.filter-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.filter-dropdown.open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+.filter-dropdown button {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  background: none;
+  color: var(--black);
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.filter-dropdown button:hover {
+  background: var(--yellow);
+}
+
+.sponsors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  max-width: 800px;
+  margin-bottom: 2rem;
+}
+
+.sponsor-box {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 14px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.sponsor-box:hover {
+  transform: translateY(-5px);
+}
+
+.sponsor-logo {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.logo-placeholder {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--yellow);
+}
+
+.sponsor-link {
+  color: var(--yellow);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.sponsor-link:hover {
+  color: white;
+}
+
+/* Event Calendar */
+.calendar-container {
+  width: 100%;
+  max-width: 800px;
+  position: relative;
+}
+
+.calendar-toggle {
+  position: absolute;
+  top: -80px;
+  right: 0;
+  background: var(--yellow);
+  border: none;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.calendar-toggle:hover {
+  transform: scale(1.1);
+}
+
+.calendar-expanded .calendar-toggle {
+  width: 30px;
+  height: 30px;
+  font-size: 0.8rem;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.event-item {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.event-item:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-3px);
+}
+
+.event-date {
+  color: var(--yellow);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.event-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.event-time {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.event-details {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 14px;
+  text-align: left;
+}
+
+.close-btn {
+  background: var(--red);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 14px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 1rem;
+  }
+
+  .nav-center {
+    gap: 1rem;
+  }
+
+  .content-split {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .square-image,
+  .animated-image {
+    width: 300px;
+    height: 300px;
+  }
+
+  .page-1 h1 {
+    font-size: 2.5rem;
+  }
+
+  .text-section h2 {
+    font-size: 2rem;
+  }
+}
