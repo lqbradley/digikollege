@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="map-container">
+    <div class="map" id="map"></div>
+  </div>
+
+  <div class="agenda-container">
+    <h3>Agenda</h3>
+    <ul class="agenda-list">
+      <ng-container *ngFor="let day of agendaDays">
+        <li
+          (click)="selectDay(day)"
+          [class.selected]="day === selectedDay"
+          style="cursor: pointer;"
+        >
+          <strong>{{ day }}</strong>
+        </li>
+
+        <li *ngIf="day === selectedDay" class="stages-container">
+          <ul class="stages-list">
+            <li *ngFor="let stage of stagesByDay[day]"
+                class="stage-item"
+            (click)="panToStage(stage)"
+            style="cursor:pointer">
+              <span class="stage-title">{{ stage.name }}</span>
+              <span class="stage-location">{{ stage.location }}</span>
+            </li>
+          </ul>
+        </li>
+      </ng-container>
+          </ul>
+        </div>
+  </div>
+

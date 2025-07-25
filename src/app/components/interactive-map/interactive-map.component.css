@@ -1,0 +1,112 @@
+.container {
+  display: flex;
+  gap: 1rem;
+  padding-top: 24px;
+  height: 90vh;
+  width: 100vw;
+}
+
+.map {
+  width: 60vw;
+  height: 80vh;
+}
+
+.map-container {
+  flex: 3 1 0;
+  min-width: 0; /* fix flexbox shrinking issues */
+}
+
+.agenda-container {
+  flex: 1 1 0;
+  height: 80vh;
+  overflow-y: auto;
+  border: 1px solid var(--blue);
+  padding: 1rem;
+  background-color: var(--yellow);
+  border-radius: 6px;
+}
+
+.agenda-container h3{
+  font-family: Mokoto, sans-serif;
+  font-size: 2rem;
+  color: var(--black);
+}
+
+.agenda-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.agenda-list li {
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background 0.2s;
+  color: var(--black);
+}
+
+.agenda-list li.selected {
+  background: var(--red);
+  font-weight: bold;
+  color: white;
+}
+
+/* Pop-up component for day stages */
+.day-stages-popup {
+  background: var(--yellow);
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+  margin-top: 1rem;
+  padding: 1rem;
+  position: relative;
+  animation: fadeIn 0.2s linear;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.close-popup {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+  background: none;
+  border: none;
+  font-size: 1.4em;
+  cursor: pointer;
+  color: #888;
+}
+
+.day-stages-popup h4 {
+  margin: 0 0 0.8rem 0;
+}
+
+.stages-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.stage-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.6rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px dotted var(--blue);
+}
+
+.stage-title {
+  font-weight: 500;
+  color: var(--black);
+  text-align: left;
+}
+
+.stage-location {
+  font-size: 0.96em;
+  color: #666;
+  text-align: right;
+}

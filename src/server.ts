@@ -14,17 +14,13 @@ const browserDistFolder = resolve(serverDistFolder, '../browser');
 const app = express();
 const angularApp = new AngularNodeAppEngine();
 
-/**
- * Example Express Rest API endpoints can be defined here.
- * Uncomment and define endpoints as necessary.
- *
- * Example:
- * ```ts
- * app.get('/api/**', (req, res) => {
- *   // Handle API request
- * });
- * ```
- */
+// const MockBrowser = require('mock-browser').mocks.MockBrowser;
+// const mock = new MockBrowser();
+//
+//
+// global['window'] = mock.getWindow();
+// global['document'] = mock.getDocument();
+// global['navigator'] = mock.getNavigator();
 
 /**
  * Serve static files from /browser

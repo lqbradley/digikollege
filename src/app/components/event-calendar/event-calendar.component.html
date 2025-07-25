@@ -1,0 +1,122 @@
+<div class="row text-center">
+  <div class="col-md-4">
+    <div class="btn-group">
+      <div
+        class="btn btn-primary"
+        mwlCalendarPreviousView
+        [view]="view"
+        [(viewDate)]="viewDate"
+        (viewDateChange)="closeOpenMonthViewDay()"
+      >
+        Previous
+      </div>
+      <div
+        class="btn btn-outline-secondary btn-today "
+        mwlCalendarToday
+        [(viewDate)]="viewDate"
+
+      >
+        Today
+      </div>
+      <div
+        class="btn btn-primary"
+        mwlCalendarNextView
+        [view]="view"
+        [(viewDate)]="viewDate"
+        (viewDateChange)="closeOpenMonthViewDay()"
+      >
+        Next
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h3>
+  </div>
+  <div class="col-md-4">
+    <div class="btn-group">
+      <div
+        class="btn btn-primary"
+        (click)="setView(CalendarView.Month)"
+        [class.active]="view === CalendarView.Month"
+      >
+        Month
+      </div>
+      <div
+        class="btn btn-primary"
+        (click)="setView(CalendarView.Week)"
+        [class.active]="view === CalendarView.Week"
+      >
+        Week
+      </div>
+      <div
+        class="btn btn-primary"
+        (click)="setView(CalendarView.Day)"
+        [class.active]="view === CalendarView.Day"
+      >
+        Day
+      </div>
+    </div>
+  </div>
+</div>
+<br />
+<div class="main-view">
+<div [ngSwitch]="view" class="scroll-wrapper" #scrollContainer>
+  <mwl-calendar-month-view
+    *ngSwitchCase="CalendarView.Month"
+    [viewDate]="viewDate"
+    [events]="events"
+    [refresh]="refresh"
+    [activeDayIsOpen]="activeDayIsOpen"
+    (dayClicked)="dayClicked($event.day)"
+    (eventClicked)="handleEvent('Clicked', $event.event)"
+    (eventTimesChanged)="eventTimesChanged($event)"
+  >
+  </mwl-calendar-month-view>
+  <mwl-calendar-week-view
+    *ngSwitchCase="CalendarView.Week"
+    [viewDate]="viewDate"
+    [events]="events"
+    [refresh]="refresh"
+    [dayStartHour]="5"
+    [dayEndHour]="22"
+    [tooltipTemplate]="emptyTooltip"
+    (eventClicked)="handleEvent('Clicked', $event.event)"
+    (eventTimesChanged)="eventTimesChanged($event)"
+  >
+  </mwl-calendar-week-view>
+  <mwl-calendar-day-view
+    *ngSwitchCase="CalendarView.Day"
+    [viewDate]="viewDate"
+    [events]="events"
+    [dayStartHour]="5"
+    [dayEndHour]="22"
+    [refresh]="refresh"
+    [tooltipAppendToBody]="false"
+    [tooltipTemplate]="emptyTooltip"
+    (eventClicked)="handleEvent('Clicked', $event.event)"
+    (eventTimesChanged)="eventTimesChanged($event)"
+
+  >
+  </mwl-calendar-day-view>
+</div>
+  </div>
+
+<ng-template class="event-popup" #modalContent let-close="close">
+  <div class="modal-header">
+    <h1 class="modal-title">{{modalData.event.title}}</h1>
+  </div>
+  <div class="modal-body">
+    <p><strong>Starts:</strong> {{ modalData.event.start | date:'short' }}</p>
+    <p *ngIf="modalData.event.end"><strong>Ends:</strong> {{ modalData.event.end | date:'short' }}</p>
+    <p *ngIf="modalData.event.meta?.sponsorType"><strong>Sponsor Type:</strong> {{ modalData.event.meta.company }}</p>
+    <p *ngIf="modalData.event.meta?.description"><strong>Description:</strong> {{ modalData.event.meta.description }}</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-secondary" (click)="close()">
+      OK
+    </button>
+  </div>
+</ng-template>
+<ng-template #emptyTooltip></ng-template>
+
+

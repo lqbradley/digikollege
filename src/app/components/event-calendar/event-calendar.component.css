@@ -1,0 +1,68 @@
+.submit-btn, .btn {
+  background: var(--yellow);
+  color: var(--black);
+  border: none;
+  font-size: 1rem;
+  font-family: Mokoto, sans-serif;
+  font-weight: 30;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+.submit-btn:hover, .btn:hover {
+  background: var(--red);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.btn-group .btn.active,
+.btn-group .btn-today{
+  color: white;
+  background: transparent; /* or keep var(--yellow) if you want */
+  border: 2px solid var(--yellow);
+  /* optionally, adjust padding to compensate for border:
+     subtract border width to keep button size */
+  padding: calc(0.5rem - 2px) calc(1rem - 2px);
+}
+
+h3 {
+  font-size: 1.25rem;
+  font-family: Mokoto, sans-serif;
+  color: white;
+}
+
+.cal-month-view .cal-cell-top,
+.cal-day-view .cal-cell-top,
+.cal-week-view .cal-cell-top,
+.cal-header,
+.cal-past {
+  font-family: Mokoto, sans-serif;
+  color: var(--blue)
+}
+
+.cal-weekend {
+  color: var(--red);
+  font-family: Mokoto, sans-serif;
+}
+
+.main-view {
+  height: 80vh;
+  overflow: hidden ;
+}
+
+.scroll-wrapper {
+  height: 100%;
+  overflow-y: auto !important;
+}
+
+mwl-calendar-week-view,
+mwl-calendar-day-view {
+  display: block !important;
+  width: 100%;
+  height: 100%;
+  min-height: 500px !important;
+}
+
+
+
